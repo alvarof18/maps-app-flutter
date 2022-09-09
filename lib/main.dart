@@ -5,9 +5,14 @@ import 'package:maps_app/blocs/blocs.dart';
 import 'package:maps_app/screens/screens.dart';
 
 void main() {
-  runApp(MultiBlocProvider(
-      providers: [BlocProvider(create: (context) => GpsBloc())],
-      child: MapsApp()));
+  runApp(MultiBlocProvider(providers: [
+    BlocProvider(create: (context) => GpsBloc()),
+    BlocProvider(create: (context) => LocationBloc()),
+    // El context ya tiene tanto el GpsBloc como el LocationBloc porque los a;ade de forma secuencial
+    BlocProvider(
+        create: (context) =>
+            MapBloc(locationBloc: BlocProvider.of<LocationBloc>(context)))
+  ], child: MapsApp()));
 }
 
 class MapsApp extends StatelessWidget {
