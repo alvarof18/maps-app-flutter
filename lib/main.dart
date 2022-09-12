@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:maps_app/blocs/blocs.dart';
 
 import 'package:maps_app/screens/screens.dart';
+import 'package:maps_app/services/services.dart';
 
 void main() {
   runApp(MultiBlocProvider(providers: [
@@ -11,7 +12,10 @@ void main() {
     // El context ya tiene tanto el GpsBloc como el LocationBloc porque los a;ade de forma secuencial
     BlocProvider(
         create: (context) =>
-            MapBloc(locationBloc: BlocProvider.of<LocationBloc>(context)))
+            MapBloc(locationBloc: BlocProvider.of<LocationBloc>(context))),
+
+    BlocProvider(
+        create: (context) => SearchBloc(trafficService: TrafficService())),
   ], child: MapsApp()));
 }
 

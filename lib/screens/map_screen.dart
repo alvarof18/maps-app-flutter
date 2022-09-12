@@ -19,7 +19,6 @@ class _MapScreenState extends State<MapScreen> {
   void initState() {
     locationBloc = BlocProvider.of<LocationBloc>(context);
     locationBloc.startFollowingUser();
-
     super.initState();
   }
 
@@ -53,7 +52,9 @@ class _MapScreenState extends State<MapScreen> {
                     MapView(
                       polylines: polylines.values.toSet(),
                       initialLocation: locationState.lastKnowLocation!,
-                    )
+                    ),
+                    const SearchBar(),
+                    const ManualMarker()
 
                     //TODO Botones y de mas para el mapa
                   ],
@@ -69,7 +70,7 @@ class _MapScreenState extends State<MapScreen> {
         children: const [
           BtnToggleUserRouter(),
           BtnFollowUser(),
-          BtnCurrentLocation()
+          BtnCurrentLocation(),
         ],
       ),
     );
