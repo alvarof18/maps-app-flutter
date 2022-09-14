@@ -5,8 +5,7 @@ class PlacesInterceptor extends Interceptor {
       'pk.eyJ1IjoiYWx2YXJvZjE4IiwiYSI6ImNsN3hqbGdmNzBpcm0zbm9ncWoxaGN2MTMifQ.F_iT1Q9a9cjrcfXl440EyA';
   @override
   void onRequest(RequestOptions options, RequestInterceptorHandler handler) {
-    options.queryParameters
-        .addAll({'access_token': apikey, 'language': 'es', 'limit': 7});
+    options.queryParameters.addAll({'access_token': apikey, 'language': 'es'});
     super.onRequest(options, handler);
   }
 }

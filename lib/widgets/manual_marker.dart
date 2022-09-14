@@ -59,7 +59,6 @@ class _ManualMarkerBody extends StatelessWidget {
                     color: Colors.black,
                     elevation: 0,
                     onPressed: () async {
-                      //TODO Loading
                       final start = locationBloc.state.lastKnowLocation;
                       if (start == null) return;
 

@@ -25,6 +25,7 @@ class MapsApp extends StatelessWidget {
     return const MaterialApp(
         title: 'Maps App',
         debugShowCheckedModeBanner: false,
+        //    home: TestMarkerScreen());
         home: LoadingScreen());
   }
 }
